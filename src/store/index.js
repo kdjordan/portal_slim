@@ -27,7 +27,7 @@ export default createStore({
 			state.accountId = payload;
 		},
 		SET_PAYPAL_ID(state, payload) {
-			console.log('setting id', payload);
+			console.log('setting paypal', payload);
 			state.paypalId = payload;
 		},
 		SET_INVOICES(state, invoices) {
@@ -58,9 +58,6 @@ export default createStore({
 			console.log('state is ', state.accountId, state.token);
 			try {
 				commit('SET_STATUS', 'loading');
-				// const { accountId, token } = rootState
-				// const accountId = state.accountId
-				// console.log('calling SET settings %%%%', accountId)
 				const profileData = await getProfile(state.accountId, state.token);
 				const resourseData = await getResources(state.accountId, state.token);
 				commit('SET_RESOURCES', resourseData);

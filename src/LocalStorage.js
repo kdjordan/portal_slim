@@ -1,14 +1,13 @@
 export function setStorage(profileObj) {
-    localStorage.setItem('userProfile', JSON.stringify(profileObj))
+    localStorage.setItem('userData', JSON.stringify(profileObj))
     return true
 }
 
 export function getStorage() {
-    const userProfile = JSON.parse(localStorage.getItem('userProfile'))
-    return userProfile
+    const userData = JSON.parse(localStorage.getItem('userData'))
+    return userData
 }
 
 export function clearStorage() {
-    console.log('called clear')
     localStorage.clear()
 }

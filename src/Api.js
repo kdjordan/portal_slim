@@ -1,18 +1,12 @@
 import axios from 'axios';
-import * as LocalStorage from '@/LocalStorage.js';
 
-const profile = LocalStorage.getStorage();
-
-let apiClient;
-
-if (profile) {
-	apiClient = axios.create({
-		baseURL: `${process.env.VUE_APP_BASE_URL}`,
-		timeout: 5000
-	});
-}
+let apiClient = axios.create({
+	baseURL: `${process.env.VUE_APP_BASE_URL}`,
+	timeout: 8000
+});
 
 export async function getProfile(accountId, token) {
+	console.log('getting profile ', accountId, token, apiClient)
 	let { data } = await apiClient.get(
 		`/v1/accounts/${accountId}`, 
 		{
@@ -22,6 +16,7 @@ export async function getProfile(accountId, token) {
 }
 
 export async function getResources(accountId, token) {
+	console.log('getting profile ', accountId, token)
 	let { data } = await apiClient.get(
 		`/v1/resourceGroups/${accountId}`,
 		{

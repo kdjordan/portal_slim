@@ -16,7 +16,11 @@ export default {
   },
   async created() {
     const store = useStore()
+    console.log('store ', store.state.profile)
+
+    // if (store.state.profile) {
     await store.dispatch('loadSettings')
+    // }
   }
 };
 </script>
