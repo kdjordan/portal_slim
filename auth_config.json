@@ -1,0 +1,6 @@
+{   
+    "domain": "portal-glotell.us.auth0.com",   
+    "client_id": "dcL7bEsmau6UhQCrXeu7O3i3XzTydArp",
+    "redirect_uri": "http://localhost:8080/auth/callback",
+    "audience": "https://billing-api.glotell.sonoc.io/"
+}
