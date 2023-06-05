@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export async function getProfile(accountId) {
-	console.log('getting profile ', accountId, axios.defaults.headers.common)
+	// console.log('getting profile ', accountId, axios.defaults.headers.common)
 	let { data } = await axios.get(
 		`/v1/accounts/${accountId}`,)
 	
@@ -9,7 +9,7 @@ export async function getProfile(accountId) {
 }
 
 export async function getResources(accountId, token) {
-	console.log('getting profile ', accountId, token)
+	// console.log('getting profile ', accountId, token)
 	let { data } = await axios.get(
 		`/v1/resourceGroups/${accountId}`,
 		{

@@ -22,18 +22,12 @@ if (storedProfile) {
 	axios.defaults.timeout = 8000;
     axios.defaults.baseURL = `${process.env.VUE_APP_BASE_URL}`
 
-	console.log(
-		'main is doing something',
-		axios.defaults.headers.common
-	);
 	store.commit('SET_TOKEN', storedProfile.token);
 	store.commit('SET_ID', storedProfile.userData.accountId);
 	if (storedProfile.userData.paypalId) {
 		store.commit('SET_PAYPAL_ID', storedProfile.userData.paypalId);
 	}
-} else {
-    console.log('NOPE***')
-}
+} 
 
 function callbackRedirect(appState) {
 	router.push(

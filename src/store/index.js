@@ -1,6 +1,5 @@
 import { createStore } from 'vuex';
 import { getProfile, getResources, getInvoices } from '@/Api.js';
-console.log('loaded store ******************************')
 
 export default createStore({
 	state: {
@@ -23,11 +22,9 @@ export default createStore({
 	},
 	mutations: {
 		SET_ID(state, payload) {
-			console.log('setting id', payload);
 			state.accountId = payload;
 		},
 		SET_PAYPAL_ID(state, payload) {
-			console.log('setting paypal', payload);
 			state.paypalId = payload;
 		},
 		SET_INVOICES(state, invoices) {
@@ -43,7 +40,6 @@ export default createStore({
 			state.status = payload;
 		},
 		SET_TOKEN(state, payload) {
-			console.log('setting token', payload);
 			state.token = payload;
 		},
 		SET_ERROR(state, payload) {
@@ -54,8 +50,8 @@ export default createStore({
 	actions: {
 		//action to retrieve data for Settings View
 		async loadSettings({ commit, state }) {
-			console.log('trying to hit API')
-			console.log('state is ', state.accountId, state.token);
+			// console.log('trying to hit API')
+			// console.log('state is ', state.accountId, state.token);
 			try {
 				commit('SET_STATUS', 'loading');
 				const profileData = await getProfile(state.accountId);

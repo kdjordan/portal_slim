@@ -9,8 +9,9 @@ export default {
   },
   async created() {
     const store = useStore()
-    await store.dispatch('loadInvoices')
-    
+    if (store.state.invoices.length === 0) {
+      await store.dispatch('loadInvoices')
+    }
   }
 };
 </script>
