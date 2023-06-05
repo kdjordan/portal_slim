@@ -1,17 +1,17 @@
 <template>
   <div 
-    class="flex flex-col  w-full shadow-lg rounded justify-center items-center"
+    class="flex flex-col  w-full shadow-lg rounded justify-center"
     :class="[color === 'light' ? 'bg-white' : 'bg-emerald-900 text-white']"
   >
-    <div class="rounded-t mb-0 px-4 py-3 border-0 justify-start">
-      <h6 class="text-blueGray-700 text-xl font-bold">Invoices</h6>
+    <div class="rounded-t mb-0 px-6 py-6 border-0  justify-start">
+      <h6 class="text-blueGray-700 text-xl font-bold">Invoices : <span>{{  }}</span></h6>
     </div>
     <div v-if="status === 'loading'" class="p-4 margin-auto text-center">
       <Loading />
     </div>
     <div v-else class="block w-full overflow-x-auto">
       <!-- Invoices table -->
-      <table class="w-full bg-transparent border-collapse">
+      <table class="w-full bg-transparent border-collapse bg-blueGray-50">
         <thead>
           <tr class="whitespace-nowrap">
             <th
@@ -89,7 +89,7 @@
         <tbody>
           <tr v-for="invoice in invoiceData.slice(0, 9)" :key="invoice"  class="whitespace-nowrap">
             <th 
-              class="px-6 py-4 align-middle text-xs  text-center"
+              class="px-6 py-4 align-middle text-xs text-center"
             >
               <span
                 class="ml-3 font-bold text-blueGray-600"
@@ -131,8 +131,10 @@
               class="px-6 py-4 align-middle text-xs  text-center"
             >
             <a :href="`https://billing-portal-api.glotell.sonoc.io/invoices/${invoice.invoiceId}/download`"  
-                class="text-blueGray-600"
-                target="_blank" rel="noopener"
+                class="text-xl bg-blueGray-600"
+                target="_blank" 
+                rel="noopener"
+                
                 > 
               &#8595;
             </a>
@@ -158,7 +160,7 @@ export default {
   computed : mapState({
     invoiceData: state => state.invoices,
     status: state => state.status,
-    errorStatus: state => state.error
+    errorStatus: state => state.error,
   }),
   props: {
     color: {
@@ -172,3 +174,21 @@ export default {
 }
 
 </script>
+<style scoped>
+
+tr:nth-child(odd) {
+  background-color:whitesmoke;
+}
+
+a {
+  color: #68c786;
+  padding: 5px 9px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+a:hover {
+  transition: all .2s ease;
+  opacity: 35%;
+}
+</style>
