@@ -58,13 +58,13 @@ export default createStore({
 			console.log('state is ', state.accountId, state.token);
 			try {
 				commit('SET_STATUS', 'loading');
-				const profileData = await getProfile(state.accountId, state.token);
+				const profileData = await getProfile(state.accountId);
 				const resourseData = await getResources(state.accountId, state.token);
 				commit('SET_RESOURCES', resourseData);
 				commit('SET_PROFILE', profileData);
 				commit('SET_STATUS', 'success');
 			} catch (e) {
-				console.log('got an error ', e.message);
+				console.log('got an error ', e);
 				commit('SET_ERROR', { type: 'settings', mssg: e.message });
 				console.log('setError', this.state.errors);
 				commit('SET_STATUS', 'error');

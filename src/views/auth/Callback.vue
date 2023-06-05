@@ -12,7 +12,6 @@ export default {
       LocalStorage.setStorage({
         token,
         userData
-        
       })
 
       this.$store.commit('SET_TOKEN', token)
@@ -21,7 +20,7 @@ export default {
       if(userData.paypalId) {
         this.$store.commit('SET_PAYPAL_ID', userData.paypalId)
       }
-      
+
       this.$router.push({ path: '/admin' })
     }
     if (this.$route.query.error) {
