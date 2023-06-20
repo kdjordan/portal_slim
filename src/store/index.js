@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import { getProfile, getResources, getInvoices } from '@/Api.js';
+console.log('creating store')
 
 export default createStore({
 	state: {

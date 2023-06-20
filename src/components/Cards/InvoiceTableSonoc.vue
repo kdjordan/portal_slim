@@ -131,7 +131,7 @@
               class="px-6 py-4 align-middle text-xs  text-center"
             >
             <a :href="`https://billing-portal-api.glotell.sonoc.io/invoices/${invoice.invoiceId}/download`"  
-                class="text-xl bg-blueGray-600"
+                class="text-xl"
                 target="_blank" 
                 rel="noopener"
                 
@@ -181,14 +181,16 @@ tr:nth-child(odd) {
 }
 
 a {
-  color: #68c786;
+  color: rgba(71, 85, 105);
   padding: 5px 9px;
+  border: 1px solid rgba(71, 85, 105); 
   border-radius: 50%;
   cursor: pointer;
 }
 
 a:hover {
-  transition: all .2s ease;
+  transition: all .4s ease;
+  background-color: #29b4ff;
   opacity: 35%;
 }
 </style>
