@@ -1,11 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router';
 
-
-// layouts
-import Admin from "@/layouts/Admin.vue";
-import Auth from "@/layouts/Auth.vue";
-
-
+import Admin from '@/layouts/Admin.vue'
+import Auth from '@/layouts/Admin.vue'
 // views for Auth layout
 import Login from "@/views/auth/Login.vue";
 import Logout from "@/views/auth/Logout.vue";
@@ -24,7 +20,7 @@ import { routeGuard } from './auth';
 const routes = [
     {
       path: "/admin",
-      redirect: "/admin/settings",
+      redirect: "/admin",
       component: Admin,
       children: [
         {
@@ -64,8 +60,12 @@ const routes = [
         },
       ],
     },
+
+
     { path: "/:pathMatch(.*)*", redirect: "/" },
   ];
+
+  console.log('routes !', routes)
   
   const router = createRouter({
     history: createWebHistory(),

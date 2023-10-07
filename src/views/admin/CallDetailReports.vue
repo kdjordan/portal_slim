@@ -145,9 +145,6 @@
 
 
 export default {
-  components: {
-    
-  },
   props: {
     color: {
       default: "light",
